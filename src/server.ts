@@ -1,6 +1,11 @@
-import express from 'express';
-const app = express();
-
-app.get('/', (req, res) => res.send('Hello World!'));
-
-app.listen(process.env.PORT || 5000);
+import App from './app';
+import PostsController from './posts/posts.controller';
+ 
+const app = new App(
+  [
+    new PostsController(),
+  ],
+  5000,
+);
+ 
+app.listen();
